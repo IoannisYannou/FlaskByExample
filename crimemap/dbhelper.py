@@ -25,7 +25,7 @@ class DBHelper:
 		try:
 			# The following introduces a deliberate security flaw.
 			query = "INSERT INTO crimes (description) VALUES ('{}');".format(data)
-			with connection.cursor as cursor:
+			with connection.cursor() as cursor:
 				cursor.execute(query)
 				connection.commit()
 		finally:
@@ -35,7 +35,7 @@ class DBHelper:
 		connection = self.connect()
 		try:
 			query = "DELETE FROM crimes;"
-			with connection.cursor as cursor:
+			with connection.cursor() as cursor:
 				cursor.execute(query)
 				connection.commit()
 		finally:
