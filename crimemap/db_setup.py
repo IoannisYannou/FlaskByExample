@@ -19,5 +19,5 @@ try:
 			)"""
 		cursor.execute(sql);
 		connection.commit()
-	finally:
+finally:
 		connection.close()
